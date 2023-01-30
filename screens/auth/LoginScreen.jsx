@@ -1,10 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ScrollView, ImageBackground, Dimensions, Icon } from 'react-native';
-import Constants from "expo-constants";
-import { Button } from 'native-base';
-
+import { authStore } from '../../stores/authStore';
 
 const LoginScreen = () => {
+    const { user, setUser } = authStore((state) => state);
+    const [email, setEmail] = useState('');
     return (
         <ScrollView
             contentContainerStyle={styles.scrollView}
@@ -22,6 +23,7 @@ const LoginScreen = () => {
                     <View style={styles.form}>
                         <TextInput
                             placeholder="Email"
+                            onChangeText={(text) => setEmail(text)}
                             style={{borderBottomWidth: 1, borderBottomColor: '#4632A1', marginTop: 25, fontSize:20}}
                         />
                         <TextInput
@@ -30,7 +32,7 @@ const LoginScreen = () => {
                             style={{borderBottomWidth: 1, borderBottomColor: '#4632A1', marginTop: 25, fontSize:20}}
                         />
                         <View style={{height: 100, justifyContent: 'center', alignItems:'center'}}>
-                            <TouchableOpacity style={styles.buttonSignIn}>
+                            <TouchableOpacity style={styles.buttonSignIn} onPress={()=> {setUser(email)}}>
                                 <Text style={{color: 'white', fontSize: 20, fontWeight: 'light', textAlign: 'center', marginTop: 10}}>Sign In</Text>
                             </TouchableOpacity>
                         </View>
