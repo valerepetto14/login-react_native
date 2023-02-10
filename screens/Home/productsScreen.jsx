@@ -57,7 +57,7 @@ const ProfileScreen = () => {
                 />
             </ImageBackground>
             <View style={styles.productConteiner}>
-                {productos.map((producto) => {
+                {/* {productos.map((producto) => {
                     return(
                         <View style={styles.product}>
                             <Image
@@ -72,7 +72,7 @@ const ProfileScreen = () => {
                             </View>
                         </View>
                     )
-                })}
+                })} */}
             </View>
         </View>
     );
@@ -104,36 +104,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginVertical: 10,
     },
-    email: {
-        fontSize: 18,
-        color: 'gray',
-    },
-    productConteiner : {
-        display: 'flex-wrap',
+    productConteiner: {
+        flex: 1,
         bottom: 100,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'white',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height / 3,
+        height: Dimensions.get('window').height / 2,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
     },
-    product: {
-        width: Dimensions.get('window').width - 40,
-        height: 100,
-        backgroundColor: 'white',
-        borderRadius: 10,
-        flexDirection: 'row',
-        marginVertical: 10,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+    email: {
+        fontSize: 18,
+        color: 'gray',
     },
     info : {
         flex: 1,

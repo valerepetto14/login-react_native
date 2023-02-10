@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, ImageBackground, Dimensions, SafeAreaView} from 'react-native';
+import {View, Text, Image, StyleSheet, ImageBackground, Dimensions, SafeAreaView, TouchableOpacity} from 'react-native';
 import { authStore } from '../../stores/authStore';
 
 const ProfileScreen = () => {
@@ -21,6 +21,9 @@ const ProfileScreen = () => {
                     <Text style={styles.name}>{user}</Text>
                     <Text style={styles.email}>johndoe@email.com</Text>
                 </View>
+                <TouchableOpacity style={styles.buttonLogOut} onPress={()=> {setUser('')}}>
+                    <Text style={{color: 'white', fontSize: 20, fontWeight: 'light', textAlign: 'center', marginTop: 10}}>Log out</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -68,6 +71,22 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    buttonLogOut : {
+        backgroundColor: '#4632A1',
+        width: Dimensions.get('window').width / 2,
+        height: 50,
+        borderRadius: 50,
+        marginTop: 30,
+        //shadow
+        shadowColor: '#4632A1',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     }
 });
 
